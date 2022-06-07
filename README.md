@@ -171,11 +171,14 @@ python trian.py &
 Repeat Step 4. and Step 5. until the performance stable on the FFSVC2022 development set. 
 
 ### References
-Coda 
+Code
+
 https://github.com/ronghuaiyang/arcface-pytorch
 
 Papers
+
 [1] On-the-Fly Data Loader and Utterance-Level Aggregation for Speaker and Language Recognition
+```shell
 @ARTICLE{9036861,
   author={Cai, Weicheng and Chen, Jinkun and Zhang, Jun and Li, Ming},
   journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing}, 
@@ -185,8 +188,10 @@ Papers
   number={},
   pages={1038-1051},
   doi={10.1109/TASLP.2020.2980991}}
-  
+```
+ 
 [2] An Iterative Framework for Self-Supervised Deep Speaker Representation Learning
+```shell
 @INPROCEEDINGS{9414713,
   author={Cai, Danwei and Wang, Weiqing and Li, Ming},
   booktitle={ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
@@ -196,3 +201,4 @@ Papers
   number={},
   pages={6728-6732},
   doi={10.1109/ICASSP39728.2021.9414713}}
+  ```
