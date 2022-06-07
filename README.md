@@ -57,10 +57,10 @@ python scoring.py --epoch 1 &
 We provided the ResNet34-C32 and ECAPA-TDNN-C1024 pretrained model for participants.
 The following is the pretrained model results on the Vox-O
 
-|    | Vox-O (EER)  |
-|  ----  | ----  |
-| ResNet34-C32  | 1.5% |
-| ECAPA-TDNN-C1024  | 1.0% |
+|    | Vox-O (EER)  | Download Link |
+|  ----  | ----  | ---- |
+| ResNet34-C32  | 1.5% | |
+| ECAPA-TDNN-C1024  | 1.0% | | 
 
 # System Pipepline
 
@@ -146,7 +146,15 @@ Same as task1.
 Same as task1.
 
 ### Step 3. Extract embeddings of FFSVC2020 data
+Modify './config/config_scoring.py' as the following content,
+```python
+val_dir = './data/PATH_FFSVC2022_supplementary'
+save_name = 'supplementary'
+scoring = False
+onlyscoring = False
+```
 
+and running 
 ```shell
 python scoring.py --epoch 1 &
 ```
