@@ -4,10 +4,13 @@
 
 This repository is the FFSVC2022 baseline system, including:
 
---*-- Data preparation
---*-- Model training
---*-- Embedding extracting
---*-- Performance calculating
+-- Data preparation
+
+-- Model training
+
+-- Embedding extracting
+
+-- Performance calculating
 
 Please visit https://github.io/ffsvc.io for more information about the challege.
 
