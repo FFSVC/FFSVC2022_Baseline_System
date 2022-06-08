@@ -1,6 +1,6 @@
 # FFSVC2022 Baseline System
 
-# Introduction
+# 0. Introduction
 
 This repository is the FFSVC2022 baseline system, including:
 
@@ -11,18 +11,18 @@ This repository is the FFSVC2022 baseline system, including:
 
 Please visit https://github.io/ffsvc.io for more information about the challege.
 
-# System introduction
+# 1. System introduction
 
-The system adopts the online data augmentation method. Please prepare the MUSAN and RIR_NOISES dataset and modify the path of './data/musan' and './data/rir_noise/' files as your saved path.
+The system adopts the online data augmentation method for model training. Please prepare the <a href="https://www.openslr.org/17/">MUSAN </a> and <a href="https://www.openslr.org/17/">RIR_NOISES </a>  dataset and modify the path of './data/musan' and './data/rir_noise/' files as your saved path. The acoustic feature depends on the torchaudio package, please make sure your torchaudio version > 0.8.0
 
 ## Training mode 
 The training config saved in "./config/*.fig" files and the training log saved in "exp/PATH_SAVE_DIR".
 
-### DP Trianing
+### DataParallel(DP) Trianing
 ```shell
 python trian.py &
 ``` 
-### DDP Training 
+### DistributedDataParallel(DDP) Training 
 ```shell
 CUDA_VISIBLE_DEVICES="0,1" nohup python -m torch.distributed.launch --nproc_per_node=2 train_dist.py > vox2_resnet.out 2>&1
 ```
@@ -62,7 +62,7 @@ The following is the pretrained model results on the Vox-O
 | ResNet34-C32  | 2.07% | <a href="https://drive.google.com/file/d/1jORY48FfRt7CWWgAtsxJRKd_TjQEBxRO/view?usp=sharing">Google Drive Link </a> |
 | ECAPA-TDNN-C1024  | 1.10% | <a href="https://drive.google.com/file/d/1fDqcaKfxMm_DpyvyXy8Nya3KUagmsJj9/view?usp=sharing">Google Drive Link </a>  | 
 
-# System Pipepline
+# 2. FFSVC2022 System Pipepline
 
 For task1:
 Data preparation -> Training Close-talking model  (with Vox2dev data) -> Far-field model training (finetuning with Vox2dev and FFSVC2020 data)
@@ -73,10 +73,8 @@ Data preparation -> Training Close-talking model  (with Vox2dev data) -> Extract
 ## Task1
 
 ### Step 1. Data preparation
-The data preparation file follows the Kaldi form that participants need "wav.scp", "utt2spk" and "spk2utt" files for training dir, and "wav.scp" and "trials" for valuation dir
-The "./data/Vox2dev/" shows the training example fiels and "./data/Vox1-O" shows the valuation example files.
-
-there are five data dir need to be prepared:
+The data preparation file follows the Kaldi form that participants need "wav.scp", "utt2spk" and "spk2utt" files for training dir, and "wav.scp" and "trials" for valuation dir.
+The "./data/Vox2dev/" shows the training example fiels and "./data/Vox1-O" shows the valuation example files. There are five data dir need to be prepared:
 
 ```shell
 ./data/Vox2dev/
@@ -93,10 +91,10 @@ there are five data dir need to be prepared:
     ./spk2utt
 ./data/FFSVC2022/dev/
     ./wav.scp
-    ./trials # with keys  download from https://
+    ./trials # with keys, download from <a href="https://ffsvc.github.io/assets/ffsvc2022/trials_dev_keys"> FFSVC22 dev trails</a> 
 ./data/FFSVC2022/eval/ 
     ./wav.scp
-    ./trials # withour keys, download from https://
+    ./trials # withour keys, download from <a href="https://ffsvc.github.io/assets/ffsvc2022/trials_eval"> FFSVC22 eval trails</a> 
 ./data/FFSVC2022/Vox2dev_FFSVC22/ # The combination of Vox2dev and FFSVC2020_supplement
     ./wav.scp
     ./utt2spk
@@ -104,19 +102,20 @@ there are five data dir need to be prepared:
 ```
 
 ### Step 2. Training Close-talking model  (with Vox2dev data)
+Modify the parameters in './config/config_resnet_dist.py' or './config/config_resnet.py'. The defalut model is resnet. 
 
 ```shell
-python trian.py &
+python trian.py & # training with DP
 ``` 
 or 
 
 ```shell
-CUDA_VISIBLE_DEVICES="0,1" nohup python -m torch.distributed.launch --nproc_per_node=2 train_dist.py > vox2_resnet34.out 2>&1 &
+CUDA_VISIBLE_DEVICES="0,1" nohup python -m torch.distributed.launch --nproc_per_node=2 train_dist.py > vox2_resnet34.out 2>&1 & # training with DDP
 ``` 
 
 ### Step 3. Training Far-field model  (finetuning with Vox2dev and FFSVC2020 data)
 
-modify the training dir as "./data/FFSVC2022/Vox2dev_FFSVC22/" and valuation dir as "./data//FFSVC2022/dev/"
+Modify the training dir as "./data/FFSVC2022/Vox2dev_FFSVC22/" and valuation dir as "./data/FFSVC2022/dev/"
 
 ```shell
 python trian.py &
@@ -127,12 +126,22 @@ or
 CUDA_VISIBLE_DEVICES="0,1" nohup python -m torch.distributed.launch --nproc_per_node=2 train_dist.py > vox2_resnet34_ft.out 2>&1 &
 ```
 Note that: 
-The development set of FFSVC2022 contain about 80,000 audio, it is strongly recommended to annotate the test code in "train.py" file 
+The development set of FFSVC2022 contain about 68,543 audios, it is strongly recommended to comment the validation code in "train.py". 
 
 ### Step 4. Valuation model
 
+Modify './config/config_scoring.py' as the following content,
+```python
+val_dir = './data/PATH_FFSVC2022/dev'
+save_name = 'dev'
+scoring = True
+onlyscoring = False
+```
+
+and running
+
 ```shell
-python scoring.py --epoch 1 &
+python scoring.py --epoch 37 &
 ```
 
 ## Task2
@@ -156,24 +165,36 @@ onlyscoring = False
 
 and running 
 ```shell
-python scoring.py --epoch 1 &
+python scoring.py --epoch 37 &
 ```
 
 ### Step 4. Annotate the pseudo lebel using KMeans algorithm
 Visit KMeans_for_task2.ipynb
 
 ### Step 5. Far-field model training (finetuning with Vox2dev and FFSVC2020 data)
-modify the training dir as "./data/FFSVC2022/Vox2dev_FFSVC22_task2/" and valuation dir as "./data//FFSVC2022/dev/"
+After Step 4., concatenate the FFSVC2020 supplement set (with pseudo labels) and Vox2dev dat (with ground truth)
+```shell
+cd /PATH/Baseline_System/
+mkdir ./data/Vox2dev_FFSVC20sup_task2/
+cat ./data/FFSVC2022/supplementary/wav.scp ./data/Vox2dev/wav.scp > ./data/Vox2dev_FFSVC20sup_task2/wav.scp
+cat ./data/FFSVC2022/supplementary/round1_utt2spk_c100 ./data/Vox2dev/utt2spk > ./data/Vox2dev_FFSVC20sup_task2/utt2spk
+cd ./data/Vox2dev_FFSVC20sup_task2/ &../../tools/utt2spk_to_spk2utt.pl <utt2spk > spk2utt
+```
+
+then modify the ".config.config_resnet_ft_task2" as Config in "train.py" 
+training dir as "./data/Vox2dev_FFSVC20sup_task2/" and running
+
 ```shell
 python trian.py &
 ``` 
 
-Repeat Step 4. and Step 5. until the performance stable on the FFSVC2022 development set. 
+Repeat Step 4. and Step 5. Until the performance is stable on the FFSVC2022 development set. 
 
 # References
 Code
 
 https://github.com/ronghuaiyang/arcface-pytorch
+
 
 Papers
 
