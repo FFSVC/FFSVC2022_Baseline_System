@@ -57,7 +57,7 @@ python scoring.py --epoch 1 &
 We provided the ResNet34-C32 and ECAPA-TDNN-C1024 pretrained model for participants.
 The following is the pretrained model results on the Vox-O
 
-|    | Vox-O (EER)  | Download Link |
+|  Model  | Vox-O (EER)  | Download Link |
 |  ----  | ----  | ---- |
 | ResNet34-C32  | 2.07% | <a href="https://drive.google.com/file/d/1jORY48FfRt7CWWgAtsxJRKd_TjQEBxRO/view?usp=sharing">Google Drive Link </a> |
 | ECAPA-TDNN-C1024  | 1.10% | <a href="https://drive.google.com/file/d/1fDqcaKfxMm_DpyvyXy8Nya3KUagmsJj9/view?usp=sharing">Google Drive Link </a>  | 
