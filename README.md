@@ -41,7 +41,7 @@ scoring = False
 onlyscoring = False
 ``` 
 
-* Compute the EER and mDCF
+* Compute EER and mDCF
 
 ```python
 scoring = False/True
@@ -91,10 +91,10 @@ The "./data/Vox2dev/" shows the training example fiels and "./data/Vox1-O" shows
     ./spk2utt
 ./data/FFSVC2022/dev/
     ./wav.scp
-    ./trials # with keys, download from <a href="https://ffsvc.github.io/assets/ffsvc2022/trials_dev_keys"> FFSVC22 dev trails</a> 
+    ./trials # with keys, download from "https://ffsvc.github.io/assets/ffsvc2022/trials_dev_keys"
 ./data/FFSVC2022/eval/ 
     ./wav.scp
-    ./trials # withour keys, download from <a href="https://ffsvc.github.io/assets/ffsvc2022/trials_eval"> FFSVC22 eval trails</a> 
+    ./trials # withour keys, download from "https://ffsvc.github.io/assets/ffsvc2022/trials_eval"
 ./data/FFSVC2022/Vox2dev_FFSVC22/ # The combination of Vox2dev and FFSVC2020_supplement
     ./wav.scp
     ./utt2spk
