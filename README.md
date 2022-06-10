@@ -9,7 +9,7 @@ This repository is the FFSVC2022 baseline system, including:
 * Embedding extracting
 * Performance calculating
 
-Please visit https://github.io/ffsvc.io for more information about the challege.
+Please visit https://ffsvc.github.io/ for more information about the challege.
 
 # 1. System introduction
 
