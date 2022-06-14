@@ -65,11 +65,11 @@ The following are the pre-trained model results on the Vox-O.
 
 # 2. FFSVC2022 System Pipeline
 
-For task1,the system adopts the pre-train + finetuning strategy. First, the Vox2dev data is used to train the pre-trained model. Then, Vox2dev and FFSVC2020 data are integrated to finetuning the pre-train model.
+For task1,the system adopts the pre-train + finetuning strategy. First, the Vox2dev data is used to train the pre-trained model. Then, Vox2dev and FFSVC2020 data are integrated to finetuning the pre-trained model.
 
 Data preparation -> Training Close-talking model  (with Vox2dev data) -> Far-field model training (finetuning with Vox2dev and FFSVC2020 data)
 
-For task2, the system adopts the pre-train + clustering to generate pseudo label + finetuning strategy. The pre-train step is same as task1. Then, all speaker embeddings from the FFSVC20 dataset are extracted using the pre-trained speaker model. We generate the pseudo label adopting the KMeans algorithm for clustering and "elbow" method for determine the cluster number. Finally, Vox2dev with ground truth and FFSVC2020 data with pseudo label are integrated to finetuning the pre-train model. 
+For task2, the system adopts the pre-train + clustering to generate pseudo label + finetuning strategy. The pre-train step is the same as the task1. Then, all speaker embeddings from the FFSVC20 dataset are extracted using the pre-trained speaker model. We generate the pseudo labels adopting the KMeans algorithm for clustering and "elbow" method for determining the cluster number. Finally, Vox2dev with ground truth and FFSVC2020 data with pseudo label are integrated to finetuning the pre-train model. 
 
 Data preparation -> Training Close-talking model  (with Vox2dev data) -> Extract embeddings of FFSVC2020 data -> Annotate the pseudo lebel using KMeans algorithm -> Far-field model training (finetuning with Vox2dev and FFSVC2020 data)
 
