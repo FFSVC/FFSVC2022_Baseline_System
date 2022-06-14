@@ -79,7 +79,7 @@ The results are 6.7% and 7.2% EER in the task1 and task2 dev set, receptively.
 
 ### Step 1. Data preparation
 The data preparation file follows the Kaldi form that participants need "wav.scp", "utt2spk" and "spk2utt" files for training dir, and "wav.scp" and "trials" for valuation dir.
-The "./data/Vox2dev/" shows the training example fiels and "./data/Vox1-O" shows the valuation example files. There are five data dir need to be prepared in the baseline system recipe:
+The "./data/Vox2dev/" shows the training example files and "./data/Vox1-O" shows the valuation example files. There are five data dir need to be prepared in the baseline system recipe:
 
 ```shell
 ./data/Vox2dev/
