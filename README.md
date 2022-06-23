@@ -88,8 +88,7 @@ The "./data/Vox2dev/" shows the training example files and "./data/Vox1-O" shows
     ./spk2utt
 ./data/Vox1-O/
     ./wav.scp
-    ./utt2spk
-    ./spk2utt
+    ./trials
 ./data/FFSVC2020_supplement/
     ./wav.scp
     ./utt2spk
@@ -110,7 +109,7 @@ The "./data/Vox2dev/" shows the training example files and "./data/Vox1-O" shows
 Modify the parameters in './config/config_resnet_dist.py' or './config/config_resnet.py' before training. The default model is resnet. If you have download the pre-trained model already, please ignore the step.
 
 ```shell
-python trian.py & # training with DP
+python train.py & # training with DP
 ``` 
 or 
 
@@ -125,7 +124,7 @@ Modify the training dir as "./data/FFSVC2022/Vox2dev_FFSVC22/" and valuation dir
 (if you have download pre-trained model, please put the model into the "save_dir" (in config file) and change the "start_epoch" as 38 (resnet pre-trained model)  the and running：
 
 ```shell
-python trian.py &
+python train.py &
 ``` 
 or 
 
@@ -191,7 +190,7 @@ cd ./data/Vox2dev_FFSVC20sup_task2/ & ../../tools/utt2spk_to_spk2utt.pl <utt2spk
 then modify the  ".config.config_resnet_ft_task2" as Config in "train.py", and change the other config parameters. Then running,
 
 ```shell
-python trian.py &
+python train.py &
 ``` 
 
 Repeat Step 4. and Step 5. until the performance is stable on the FFSVC2022 development set. 
