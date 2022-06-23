@@ -18,9 +18,9 @@ The system adopts the online data augmentation method for model training. Please
 ## Training mode 
 The training config is saved in "./config/*.fig" files, and the training log is saved in "exp/PATH_SAVE_DIR".
 
-### DataParallel(DP) Trianing
+### DataParallel(DP) Training
 ```shell
-python trian.py &
+python train.py &
 ``` 
 ### DistributedDataParallel(DDP) Training 
 ```shell
