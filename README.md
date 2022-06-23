@@ -99,7 +99,7 @@ The "./data/Vox2dev/" shows the training example files and "./data/Vox1-O" shows
     ./trials # with keys, download from "https://ffsvc.github.io/assets/ffsvc2022/trials_dev_keys"
 ./data/FFSVC2022/eval/ 
     ./wav.scp
-    ./trials # withour keys, download from "https://ffsvc.github.io/assets/ffsvc2022/trials_eval"
+    ./trials # without keys, download from "https://ffsvc.github.io/assets/ffsvc2022/trials_eval"
 ./data/FFSVC2022/Vox2dev_FFSVC22/ # The combination of Vox2dev and FFSVC2020_supplement
     ./wav.scp
     ./utt2spk
