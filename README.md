@@ -107,7 +107,7 @@ The "./data/Vox2dev/" shows the training example files and "./data/Vox1-O" shows
 ```
 
 ### Step 2. Training Close-talking model  (training with Vox2dev data)
-Modify the parameters in './config/config_resnet_dist.py' or './config/config_resnet.py' before training. The defalut model is resnet. If you have download the pre-trained model already, please ignore the step.
+Modify the parameters in './config/config_resnet_dist.py' or './config/config_resnet.py' before training. The default model is resnet. If you have download the pre-trained model already, please ignore the step.
 
 ```shell
 python trian.py & # training with DP
