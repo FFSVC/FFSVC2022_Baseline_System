@@ -26,7 +26,7 @@ class Config(object):
     embd_dim = 256
     hidden_dim = 1024
     classifier = 'AAMSoftmax' # AAMSoftmax,AMSoftmax, ASoftmax, Softmax
-    angular_m = 0.4
+    angular_m = 0.2
     angular_s = 32
     
     warm_up_epoch = 2
