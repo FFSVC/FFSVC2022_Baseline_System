@@ -15,6 +15,11 @@ Please visit https://ffsvc.github.io/ for more information about the challenge.
 
 The system adopts the online data augmentation method for model training. Please prepare the <a href="https://www.openslr.org/17/">MUSAN </a> and <a href="https://www.openslr.org/17/">RIR_NOISES </a>  dataset and modify the path of './data/MUSAN/' and './data/RIR_Noise/' files as your data path. The acoustic feature extraction and data augmentation depend on the torchaudio package, please make sure your torchaudio version = 0.8.0
 
+Dependencies
+```shell
+conda install pytorch==1.8.1 torchvision==0.9.1 torchaudio==0.8.1 cudatoolkit=10.2 -c pytorch
+```
+
 ## Training mode 
 The training config is saved in "./config/*.fig" files, and the training log is saved in "exp/PATH_SAVE_DIR".
 
