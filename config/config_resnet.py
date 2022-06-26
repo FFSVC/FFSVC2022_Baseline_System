@@ -1,5 +1,5 @@
 class Config(object):
-    save_dir = 'Vox2dev_80FBANK_ResNet34StatsPool_AMsoftmax_256'
+    save_dir = 'Vox2dev_80FBANK_ResNet34StatsPool_AAMsoftmax_256'
     train_dir = 'Vox2dev'
     val_dir = 'Vox1-O'
     
