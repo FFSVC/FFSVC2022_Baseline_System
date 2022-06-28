@@ -124,7 +124,7 @@ CUDA_VISIBLE_DEVICES="0,1" nohup python -m torch.distributed.launch --nproc_per_
 
 ### Step 3. Training Far-field model  (finetuning with Vox2dev and FFSVC2020 data)
 
-Modify the training dir as "./data/FFSVC2022/Vox2dev_FFSVC22/" and valuation dir as "./data/FFSVC2022/dev/" before finetuning. 
+Modify the training dir as "FFSVC2022/Vox2dev_FFSVC22/" and valuation dir as "FFSVC2022/dev/" before finetuning. 
 
 (if you have download pre-trained model, please put the model into the "save_dir" (in config file) and change the "start_epoch" as 38 (resnet pre-trained model)  the and running：
 
@@ -144,7 +144,7 @@ Since the development set of FFSVC2022 contains about 68,543 audios, it is stron
 Modify './config/config_scoring.py' as the following content,
 
 ```python
-val_dir = './data/PATH_FFSVC2022/dev'
+val_dir = 'PATH_FFSVC2022/dev'
 save_name = 'dev'
 scoring = True
 onlyscoring = False
@@ -168,7 +168,7 @@ Same as task1.
 ### Step 3. Extract embeddings of FFSVC2020 data
 Modify './config/config_scoring.py' as the following content,
 ```python
-val_dir = './data/PATH_FFSVC2022_supplementary'
+val_dir = 'FFSVC2020_supplementary'
 save_name = 'supplementary'
 scoring = False
 onlyscoring = False
