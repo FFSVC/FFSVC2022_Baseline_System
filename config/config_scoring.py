@@ -1,5 +1,5 @@
 class Config(object):
-    save_dir = 'Vox2devFFSVC20sup_80FBANK_ResNet34StatsPool_AAMsoftmax_256'
+    save_dir = 'Vox2dev_80FBANK_ResNet34StatsPool_AAMsoftmax_256'
     val_dir = 'FFSVC2022/supplementary'
     save_name = 'supplementary'
     scoring = False     # True: extract and scoring 
