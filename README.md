@@ -192,7 +192,7 @@ cat ./data/FFSVC2020_supplement/round1_utt2spk_c100 ./data/Vox2dev/utt2spk > ./d
 cd ./data/Vox2dev_FFSVC20sup_task2/ && ../../tools/utt2spk_to_spk2utt.pl <utt2spk > spk2utt
 ```
 
-then modify the  ".config.config_resnet_ft_task2" as Config in "train.py", and change the other config parameters. Then running,
+then modify the  "config/config_resnet_ft_task2" as Config in "train.py", and change the other config parameters. Then running,
 
 ```shell
 python train.py &
