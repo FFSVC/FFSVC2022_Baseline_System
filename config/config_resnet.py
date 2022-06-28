@@ -30,7 +30,7 @@ class Config(object):
     angular_s = 32
     
     warm_up_epoch = 2
-    lr = 0.001
+    lr = 0.0001
 
     epochs = 100
     start_epoch = 40
