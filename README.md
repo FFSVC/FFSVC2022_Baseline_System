@@ -185,11 +185,11 @@ Visit KMeans_for_task2.ipynb
 ### Step 5. Far-field model training (finetuning with Vox2dev and FFSVC2020 data)
 After Step 4., concatenate the FFSVC2020 supplement set (with pseudo labels) and Vox2dev dat (with ground truth)
 ```shell
-cd /PATH/Baseline_System/
+
 mkdir ./data/Vox2dev_FFSVC20sup_task2/
-cat ./data/FFSVC2022/supplementary/wav.scp ./data/Vox2dev/wav.scp > ./data/Vox2dev_FFSVC20sup_task2/wav.scp
-cat ./data/FFSVC2022/supplementary/round1_utt2spk_c100 ./data/Vox2dev/utt2spk > ./data/Vox2dev_FFSVC20sup_task2/utt2spk
-cd ./data/Vox2dev_FFSVC20sup_task2/ & ../../tools/utt2spk_to_spk2utt.pl <utt2spk > spk2utt
+cat ./data/FFSVC2020_supplement/wav.scp ./data/Vox2dev/wav.scp > ./data/Vox2dev_FFSVC20sup_task2/wav.scp
+cat ./data/FFSVC2020_supplement/round1_utt2spk_c100 ./data/Vox2dev/utt2spk > ./data/Vox2dev_FFSVC20sup_task2/utt2spk
+cd ./data/Vox2dev_FFSVC20sup_task2/ && ../../tools/utt2spk_to_spk2utt.pl <utt2spk > spk2utt
 ```
 
 then modify the  ".config.config_resnet_ft_task2" as Config in "train.py", and change the other config parameters. Then running,
