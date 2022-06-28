@@ -30,7 +30,8 @@ class Config(object):
     angular_s = 32
     
     warm_up_epoch = 5
-    lr = 0.001
+    lr = 0.0001
+    gpu = '4,5'
 
     epochs = 100
     start_epoch = 38
