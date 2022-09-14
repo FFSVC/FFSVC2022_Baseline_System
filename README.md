@@ -210,7 +210,18 @@ https://github.com/ilyaraz/pytorch_kmeans
 
 Papers
 
-[1] On-the-Fly Data Loader and Utterance-Level Aggregation for Speaker and Language Recognition
+
+[1] The 2022 Far-field Speaker Verification Challenge: Exploring domain mismatch and semi-supervised learning under the far-field scenarios
+```shell
+@misc{2209.05273,
+Author = {Xiaoyi Qin and Ming Li and Hui Bu and Shrikanth Narayanan and Haizhou Li},
+Title = {The 2022 Far-field Speaker Verification Challenge: Exploring domain mismatch and semi-supervised learning under the far-field scenarios},
+Year = {2022},
+Eprint = {arXiv:2209.05273},
+}
+```
+
+[2] On-the-Fly Data Loader and Utterance-Level Aggregation for Speaker and Language Recognition
 ```shell
 @ARTICLE{9036861,
   author={Cai, Weicheng and Chen, Jinkun and Zhang, Jun and Li, Ming},
@@ -223,7 +234,7 @@ Papers
   doi={10.1109/TASLP.2020.2980991}}
 ```
  
-[2] An Iterative Framework for Self-Supervised Deep Speaker Representation Learning
+[3] An Iterative Framework for Self-Supervised Deep Speaker Representation Learning
 ```shell
 @INPROCEEDINGS{9414713,
   author={Cai, Danwei and Wang, Weiqing and Li, Ming},
